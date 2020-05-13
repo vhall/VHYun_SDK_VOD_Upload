@@ -57,32 +57,33 @@
 {
     [super addUploadFileWithPath:filePath];
     
-    VHUploadModel *model = [[VHUploadModel alloc] init];
-    model.vodInfo = [[VHVodInfo alloc] init];
-    model.vodInfo.name = [filePath lastPathComponent];
-    model.vodInfo.desc = [NSString stringWithFormat:@"测试上传_iOS_%f",[[NSDate date] timeIntervalSince1970]];
-    model.filePath = filePath;
-    
-    [self.dataSource addObject:model];
-    [self.tableView reloadData];
-    
-    __weak typeof(self)weakSelf = self;
-    [self.uploder uploadFilePath:model.filePath vodInfo:model.vodInfo progress:^(VHUploadFileInfo * _Nonnull fileInfo, int64_t uploadedSize, int64_t totalSize) {
-        
-        NSInteger index = [weakSelf.dataSource indexOfObject:model];
-        model.progress = 1.f * uploadedSize / totalSize;
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-        //主线程刷新progress
-        dispatch_async(dispatch_get_main_queue(), ^{
-            VHUploadCell *cell = [weakSelf.tableView cellForRowAtIndexPath:indexPath];
-            cell.progressView.progress = model.progress;
-            cell.progressLabel.text = [NSString stringWithFormat:@"%f",model.progress];
-        });
-    } success:^(VHUploadFileInfo * _Nonnull fileInfo) {
-        
-    } failure:^(VHUploadFileInfo * _Nonnull fileInfo, NSError * _Nonnull error) {
-        
-    }];
+//    VHUploadModel *model = [[VHUploadModel alloc] init];
+//    model.vodInfo = [[VHVodInfo alloc] init];
+//    model.vodInfo.name = [filePath lastPathComponent];
+//    model.vodInfo.desc = [NSString stringWithFormat:@"测试上传_iOS_%f",[[NSDate date] timeIntervalSince1970]];
+//    model.filePath = filePath;
+//    
+//    [self.dataSource addObject:model];
+//    [self.tableView reloadData];
+//    
+//    __weak typeof(self)weakSelf = self;
+
+//    [self.uploder uploadFilePath:model.filePath vodInfo:model.vodInfo progress:^(VHUploadFileInfo * _Nonnull fileInfo, int64_t uploadedSize, int64_t totalSize) {
+//
+//        NSInteger index = [weakSelf.dataSource indexOfObject:model];
+//        model.progress = 1.f * uploadedSize / totalSize;
+//        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+//        //主线程刷新progress
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            VHUploadCell *cell = [weakSelf.tableView cellForRowAtIndexPath:indexPath];
+//            cell.progressView.progress = model.progress;
+//            cell.progressLabel.text = [NSString stringWithFormat:@"%f",model.progress];
+//        });
+//    } success:^(VHUploadFileInfo * _Nonnull fileInfo) {
+//
+//    } failure:^(VHUploadFileInfo * _Nullable fileInfo, NSError * _Nonnull error) {
+//
+//    }];
 }
 
 

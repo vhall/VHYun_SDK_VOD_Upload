@@ -42,17 +42,32 @@ typedef NS_ENUM(NSInteger, VHLogLevel) {
 
 /**
  *  设置第三方用户id  建议使用用户id保持唯一性
- *  @param third_party_user_id  第三方用户id 使用您的App登录后获得用户id即可
+ *  @param third_party_user_id  第三方用户id 使用您的App登录后获得用户id即可 会使底层重新链接触发当前链接房间的上下线消息
  */
 + (BOOL) setThirdPartyUserId:(NSString *)third_party_user_id;
 
 /**
  *  设置第三方用户id  建议使用用户id保持唯一性
- *  @param third_party_user_id  第三方用户id 使用您的App登录后获得用户id即可
+ *  @param third_party_user_id  第三方用户id 使用您的App登录后获得用户id即可 会使底层重新链接触发当前链接房间的上下线消息
  *  @param context 对应third_party_user_id 自定义信息用于接IM收消息的context中，如：@{@"nick_name":@"xxxx",@"avatar":@"xxxx"};
      为 nil 时，聊天消息会读取通过API设置nick_name和avatar。
  */
 + (BOOL) setThirdPartyUserId:(NSString *)third_party_user_id context:(NSDictionary*)context;
+
+/**
+ *  设置第三方用户id  建议使用用户id保持唯一性
+ *  @param third_party_user_id  第三方用户id 使用您的App登录后获得用户id即可 会使底层重新链接触发当前链接房间的上下线消息
+ *  @param context 对应third_party_user_id 自定义信息用于接IM收消息的context中，如：@{@"nick_name":@"xxxx",@"avatar":@"xxxx"};
+     为 nil 时，聊天消息会读取通过API设置nick_name和avatar。
+ *  @param  completeBlock 设置重置完成操作
+ */
++ (BOOL) setThirdPartyUserId:(NSString *)third_party_user_id context:(NSDictionary*)context completeBlock:(void(^)(NSError *error)) completeBlock;
+
+/**
+ *  @param context 对应third_party_user_id 自定义信息用于接IM收消息的context中，如：@{@"nick_name":@"xxxx",@"avatar":@"xxxx"};
+     为 nil 时，聊天消息会读取通过API设置nick_name和avatar。
+ */
++ (BOOL) setThirdPartyUserContext:(NSDictionary*)context;
 
 /**
  *  设置日志等级
@@ -77,7 +92,14 @@ typedef NS_ENUM(NSInteger, VHLogLevel) {
  */
 + (BOOL) isInited;
 
-
+/**
+*  获得当前third_party_user_id
+*/
++ (NSString*) getThirdPartyUserId;
+/**
+*  获得当前Context
+*/
++ (NSDictionary *) getContext;
 /**
  *  获得当前SDK 基础模块版本号
  */

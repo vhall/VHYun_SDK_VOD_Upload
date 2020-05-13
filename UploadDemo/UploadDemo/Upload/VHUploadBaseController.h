@@ -34,6 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UITextView *logtextview;
 
+
+//删除上传成功的本地文件
+- (BOOL)deletefile:(NSString *)uploadPath;
 @end
 
 NS_ASSUME_NONNULL_END

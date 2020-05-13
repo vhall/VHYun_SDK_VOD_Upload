@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C00D0C66235DB94A00049BAC /* VHCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C00D0C64235DB94A00049BAC /* VHCore.framework */; };
+		03DEFFA3243B66440065C946 /* NSDictionary+ZXPUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DEFF9D243B66440065C946 /* NSDictionary+ZXPUnicode.m */; };
+		03DEFFA4243B66440065C946 /* NSObject+ZXPUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DEFF9E243B66440065C946 /* NSObject+ZXPUnicode.m */; };
+		03DEFFA5243B66440065C946 /* NSArray+ ZXPUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DEFFA2243B66440065C946 /* NSArray+ ZXPUnicode.m */; };
 		C00D0C6B235DBC1100049BAC /* VHCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C00D0C64235DB94A00049BAC /* VHCore.framework */; };
 		C00D0C6C235DBC1100049BAC /* VHCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C00D0C64235DB94A00049BAC /* VHCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C046AED02366908C0095E61E /* VHSingleFileUploadController.m in Sources */ = {isa = PBXBuildFile; fileRef = C046AECF2366908C0095E61E /* VHSingleFileUploadController.m */; };
 		C046AED3236691250095E61E /* VHUploadBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = C046AED2236691250095E61E /* VHUploadBaseController.m */; };
 		C04B31F5236A7CDB00FCADD3 /* 40s.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C04B31F4236A7CDB00FCADD3 /* 40s.mp4 */; };
 		C06EDDB123599D0000B99C95 /* testVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C06EDDB023599CFF00B99C95 /* testVideo.mp4 */; };
-		C07DB08A235F0089004A2F70 /* VHUpload.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C07DB089235F0089004A2F70 /* VHUpload.framework */; };
 		C07DB08B235F019A004A2F70 /* VHUpload.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C07DB089235F0089004A2F70 /* VHUpload.framework */; };
 		C07DB08C235F019A004A2F70 /* VHUpload.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C07DB089235F0089004A2F70 /* VHUpload.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C07DB0AD2361A085004A2F70 /* VHListUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C07DB0AC2361A085004A2F70 /* VHListUploadViewController.m */; };
@@ -60,6 +61,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		03DEFF9D243B66440065C946 /* NSDictionary+ZXPUnicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ZXPUnicode.m"; sourceTree = "<group>"; };
+		03DEFF9E243B66440065C946 /* NSObject+ZXPUnicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ZXPUnicode.m"; sourceTree = "<group>"; };
+		03DEFF9F243B66440065C946 /* NSArray+ZXPUnicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ZXPUnicode.h"; sourceTree = "<group>"; };
+		03DEFFA0243B66440065C946 /* NSDictionary+ZXPUnicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ZXPUnicode.h"; sourceTree = "<group>"; };
+		03DEFFA1243B66440065C946 /* NSObject+ZXPUnicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ZXPUnicode.h"; sourceTree = "<group>"; };
+		03DEFFA2243B66440065C946 /* NSArray+ ZXPUnicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ ZXPUnicode.m"; sourceTree = "<group>"; };
 		C00D0C64235DB94A00049BAC /* VHCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VHCore.framework; sourceTree = "<group>"; };
 		C046AECE2366908C0095E61E /* VHSingleFileUploadController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHSingleFileUploadController.h; sourceTree = "<group>"; };
 		C046AECF2366908C0095E61E /* VHSingleFileUploadController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHSingleFileUploadController.m; sourceTree = "<group>"; };
@@ -124,9 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C00D0C66235DB94A00049BAC /* VHCore.framework in Frameworks */,
 				C07DB08B235F019A004A2F70 /* VHUpload.framework in Frameworks */,
-				C07DB08A235F0089004A2F70 /* VHUpload.framework in Frameworks */,
 				C00D0C6B235DBC1100049BAC /* VHCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,6 +139,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03DEFF9C243B66440065C946 /* ZXPUnicode */ = {
+			isa = PBXGroup;
+			children = (
+				03DEFF9D243B66440065C946 /* NSDictionary+ZXPUnicode.m */,
+				03DEFF9E243B66440065C946 /* NSObject+ZXPUnicode.m */,
+				03DEFF9F243B66440065C946 /* NSArray+ZXPUnicode.h */,
+				03DEFFA0243B66440065C946 /* NSDictionary+ZXPUnicode.h */,
+				03DEFFA1243B66440065C946 /* NSObject+ZXPUnicode.h */,
+				03DEFFA2243B66440065C946 /* NSArray+ ZXPUnicode.m */,
+			);
+			path = ZXPUnicode;
+			sourceTree = "<group>";
+		};
 		C00D0C63235DB94A00049BAC /* VHYunFrameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,13 +162,13 @@
 			path = ../../VHYunFrameworks;
 			sourceTree = "<group>";
 		};
-		C046AED42366D6870095E61E /* CustomUpload */ = {
+		C046AED42366D6870095E61E /* SingleFileUpload */ = {
 			isa = PBXGroup;
 			children = (
 				C046AECE2366908C0095E61E /* VHSingleFileUploadController.h */,
 				C046AECF2366908C0095E61E /* VHSingleFileUploadController.m */,
 			);
-			path = CustomUpload;
+			path = SingleFileUpload;
 			sourceTree = "<group>";
 		};
 		C046AED52366D6A10095E61E /* ListUpload */ = {
@@ -172,7 +190,7 @@
 				C046AED1236691250095E61E /* VHUploadBaseController.h */,
 				C046AED2236691250095E61E /* VHUploadBaseController.m */,
 				C0F54F1B236813BB000E6275 /* MultiPartUpload */,
-				C046AED42366D6870095E61E /* CustomUpload */,
+				C046AED42366D6870095E61E /* SingleFileUpload */,
 				C046AED52366D6A10095E61E /* ListUpload */,
 			);
 			path = Upload;
@@ -213,6 +231,7 @@
 				C08DDB842355B3260098A60F /* LaunchScreen.storyboard */,
 				C08DDB872355B3260098A60F /* Info.plist */,
 				C08DDB882355B3260098A60F /* main.m */,
+				03DEFF9C243B66440065C946 /* ZXPUnicode */,
 			);
 			path = UploadDemo;
 			sourceTree = "<group>";
@@ -260,10 +279,10 @@
 			isa = PBXGroup;
 			children = (
 				C08DDCA52355E6590098A60F /* InitSDKViewController.h */,
-				C08DDCA62355E6590098A60F /* ViewController+vhall.m */,
 				C08DDCA72355E6590098A60F /* InitSDKViewController.m */,
 				C08DDCA82355E6590098A60F /* InitSDKViewController.xib */,
 				C08DDCA92355E6590098A60F /* ViewController+vhall.h */,
+				C08DDCA62355E6590098A60F /* ViewController+vhall.m */,
 			);
 			path = InitSDK;
 			sourceTree = "<group>";
@@ -271,11 +290,11 @@
 		C08DDCAA2355E6590098A60F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				C08DDCAB2355E6590098A60F /* VHStatisticsStystem.m */,
-				C08DDCAC2355E6590098A60F /* XIBUtils */,
-				C08DDCB12355E6590098A60F /* VHStatisticsStystem.h */,
-				C08DDCB22355E6590098A60F /* View */,
 				C08DDCB92355E6590098A60F /* MBProgressHUD */,
+				C08DDCB12355E6590098A60F /* VHStatisticsStystem.h */,
+				C08DDCAB2355E6590098A60F /* VHStatisticsStystem.m */,
+				C08DDCB22355E6590098A60F /* View */,
+				C08DDCAC2355E6590098A60F /* XIBUtils */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -418,11 +437,13 @@
 			files = (
 				C0F54F1E236813F1000E6275 /* MultiPartUploadController.m in Sources */,
 				C08DDCCA2355E6590098A60F /* ITTXibViewUtils.m in Sources */,
+				03DEFFA5243B66440065C946 /* NSArray+ ZXPUnicode.m in Sources */,
 				C08DDB7E2355B3220098A60F /* ViewController.m in Sources */,
 				C08DDCD12355E6590098A60F /* VHStystemSetting.m in Sources */,
 				C07DB0AD2361A085004A2F70 /* VHListUploadViewController.m in Sources */,
 				C07DB0B32361A84A004A2F70 /* VHUploadCell.m in Sources */,
 				C046AED3236691250095E61E /* VHUploadBaseController.m in Sources */,
+				03DEFFA4243B66440065C946 /* NSObject+ZXPUnicode.m in Sources */,
 				C08DDCC42355E6590098A60F /* JXTAlertController.m in Sources */,
 				C08DDCC92355E6590098A60F /* VHStatisticsStystem.m in Sources */,
 				C08DDCCB2355E6590098A60F /* ITTXibView.m in Sources */,
@@ -439,6 +460,7 @@
 				C08DDCD22355E6590098A60F /* VHBaseViewController.m in Sources */,
 				C08DDB7B2355B3220098A60F /* AppDelegate.mm in Sources */,
 				C08DDCCF2355E6590098A60F /* MBProgressHUD.m in Sources */,
+				03DEFFA3243B66440065C946 /* NSDictionary+ZXPUnicode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,8 +602,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H49DK955B9;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../VHYunFrameworks";
@@ -591,9 +613,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vhall.UploadDemo.en;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = vhyun.sdk.upload_test;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -602,8 +625,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H49DK955B9;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../VHYunFrameworks";
@@ -613,9 +636,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vhall.UploadDemo.en;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = vhyun.sdk.upload_test;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

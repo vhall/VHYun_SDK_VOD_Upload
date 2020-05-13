@@ -2,18 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>App想要访问您手机的媒体相册，是否允许？</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>您是否允许App访问您的相册？</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>您是否允许App保存文件到相册？</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>App想要访问您手机的麦克风，是否允许？</string>
-	<key>NSCameraUsageDescription</key>
-	<string>App想要访问您手机的系统相机，是否允许？</string>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<string>zh_CN</string>
 	<key>CFBundleDisplayName</key>
 	<string>微吼云 Upload</string>
 	<key>CFBundleExecutable</key>
@@ -27,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSApplicationCategoryType</key>
@@ -39,8 +29,20 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>App想要访问您手机的媒体相册，是否允许？</string>
+	<key>NSCameraUsageDescription</key>
+	<string>App想要访问您手机的系统相机，是否允许？</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>App想要访问您手机的麦克风，是否允许？</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>您是否允许App保存文件到相册？</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>您是否允许App访问您的相册？</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

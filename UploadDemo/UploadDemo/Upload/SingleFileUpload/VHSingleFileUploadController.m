@@ -54,48 +54,31 @@
 {
     [super addUploadFileWithPath:filePath];
     
-    VHVodInfo *model = [[VHVodInfo alloc] init];
-    model.name = self.nameTextFiled.text;
-    model.desc = [filePath lastPathComponent];
-    
-    __weak typeof(self)weakSelf = self;
-    
-    //断点续传
-//    [weakSelf.uploder resumableUpload:filePath vodInfo:model progress:^(VHUploadFileInfo * _Nullable fileInfo, int64_t uploadedSize, int64_t totalSize) {
+//    VHVodInfo *model = [[VHVodInfo alloc] init];
+//    model.name = self.nameTextFiled.text;
+//    model.desc = [filePath lastPathComponent];
+//    
+//    __weak typeof(self)weakSelf = self;
+
+//    [self.uploder uploadFilePath:filePath vodInfo:model progress:^(VHUploadFileInfo * _Nonnull fileInfo, int64_t uploadedSize, int64_t totalSize) {
 //        //主线程刷新progress
 //        dispatch_async(dispatch_get_main_queue(), ^{
 //            weakSelf.progressView.progress = 1.f * uploadedSize / totalSize;
-//            weakSelf.logtextview.text = [NSString stringWithFormat:@"%f",weakSelf.progressView.progress];
+//            weakSelf.logtextview.text = [NSString stringWithFormat:@"上传进度：%f",weakSelf.progressView.progress];
 //        });
-//    } success:^(VHUploadFileInfo * _Nullable fileInfo) {
+//    } success:^(VHUploadFileInfo * _Nonnull fileInfo) {
+//        weakSelf.logtextview.text = [NSString stringWithFormat:@"上传成功，点播id：%@",fileInfo.recordId];
 //        [JXTAlertView showToastViewWithTitle:nil message:@"上传成功" duration:2 dismissCompletion:^(NSInteger buttonIndex) {
 //            weakSelf.nameTextFiled.text = nil;
 //        }];
-//        weakSelf.logtextview.text = @"上传成功";
+//        //删除本地文件
+//        [weakSelf deletefile:filePath];
 //    } failure:^(VHUploadFileInfo * _Nullable fileInfo, NSError * _Nonnull error) {
-//        weakSelf.logtextview.text = [NSString stringWithFormat:@"%@",error];
+//        weakSelf.logtextview.text = [NSString stringWithFormat:@"上传失败，error：%@",error];
 //        [JXTAlertView showToastViewWithTitle:@"上传失败" message:[NSString stringWithFormat:@"%@",error] duration:2 dismissCompletion:^(NSInteger buttonIndex) {
 //
 //        }];
 //    }];
-
-    [self.uploder uploadFilePath:filePath vodInfo:model progress:^(VHUploadFileInfo * _Nonnull fileInfo, int64_t uploadedSize, int64_t totalSize) {
-        //主线程刷新progress
-        dispatch_async(dispatch_get_main_queue(), ^{
-            weakSelf.progressView.progress = 1.f * uploadedSize / totalSize;
-            weakSelf.logtextview.text = [NSString stringWithFormat:@"%f",weakSelf.progressView.progress];
-        });
-    } success:^(VHUploadFileInfo * _Nonnull fileInfo) {
-        weakSelf.logtextview.text = @"上传成功";
-        [JXTAlertView showToastViewWithTitle:nil message:@"上传成功" duration:2 dismissCompletion:^(NSInteger buttonIndex) {
-            weakSelf.nameTextFiled.text = nil;
-        }];
-    } failure:^(VHUploadFileInfo * _Nonnull fileInfo, NSError * _Nonnull error) {
-        weakSelf.logtextview.text = [NSString stringWithFormat:@"%@",error];
-        [JXTAlertView showToastViewWithTitle:@"上传失败" message:[NSString stringWithFormat:@"%@",error] duration:2 dismissCompletion:^(NSInteger buttonIndex) {
-
-        }];
-    }];
 }
 
 @end

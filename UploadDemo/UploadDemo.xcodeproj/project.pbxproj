@@ -14,8 +14,6 @@
 		C00D0C6C235DBC1100049BAC /* VHCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C00D0C64235DB94A00049BAC /* VHCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C046AED02366908C0095E61E /* VHSingleFileUploadController.m in Sources */ = {isa = PBXBuildFile; fileRef = C046AECF2366908C0095E61E /* VHSingleFileUploadController.m */; };
 		C046AED3236691250095E61E /* VHUploadBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = C046AED2236691250095E61E /* VHUploadBaseController.m */; };
-		C04B31F5236A7CDB00FCADD3 /* 40s.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C04B31F4236A7CDB00FCADD3 /* 40s.mp4 */; };
-		C06EDDB123599D0000B99C95 /* testVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C06EDDB023599CFF00B99C95 /* testVideo.mp4 */; };
 		C07DB08B235F019A004A2F70 /* VHUpload.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C07DB089235F0089004A2F70 /* VHUpload.framework */; };
 		C07DB08C235F019A004A2F70 /* VHUpload.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C07DB089235F0089004A2F70 /* VHUpload.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C07DB0AD2361A085004A2F70 /* VHListUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C07DB0AC2361A085004A2F70 /* VHListUploadViewController.m */; };
@@ -372,6 +370,7 @@
 				C08DDB732355B3220098A60F /* Frameworks */,
 				C08DDB742355B3220098A60F /* Resources */,
 				C08DDC952355D92B0098A60F /* Embed Frameworks */,
+				C0F3F1A225C5DB35001CD534 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -422,13 +421,31 @@
 				C08DDB862355B3260098A60F /* LaunchScreen.storyboard in Resources */,
 				C08DDB832355B3260098A60F /* Assets.xcassets in Resources */,
 				C08DDB812355B3220098A60F /* Main.storyboard in Resources */,
-				C04B31F5236A7CDB00FCADD3 /* 40s.mp4 in Resources */,
-				C06EDDB123599D0000B99C95 /* testVideo.mp4 in Resources */,
 				C08DDCC82355E6590098A60F /* InitSDKViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C0F3F1A225C5DB35001CD534 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\nif [[ $APP_PATH != *ArchiveIntermediates* ]]; then\n    exit 0\nfi\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C08DDB722355B3220098A60F /* Sources */ = {
@@ -613,7 +630,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vhall.UploadDemo.en;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -636,7 +653,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vhall.UploadDemo.en;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -17,6 +17,8 @@
 /** 点击重试 */
 @property (nonatomic, strong) UIButton *tryButton;
 
+@property (nonatomic, assign) BOOL isSafe;
+
 @end
 
 @implementation MultiPartUploadController
@@ -25,18 +27,27 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIButton *addBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 64, CGRectGetWidth(self.view.frame), 100)];
-    [addBtn setTitle:@"点击添加视频上传" forState:UIControlStateNormal];
+    UIButton *addBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 120, CGRectGetWidth(self.view.frame), 80)];
+    [addBtn setTitle:@"点击添加视频并上传" forState:UIControlStateNormal];
+    addBtn.titleLabel.font = [UIFont systemFontOfSize:28];
     [addBtn addTarget:self action:@selector(addBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    addBtn.backgroundColor = [UIColor brownColor];
+    addBtn.backgroundColor = [UIColor greenColor];
     [addBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [self.view addSubview:addBtn];
+    
+    UILabel * l = [[UILabel alloc] initWithFrame:CGRectMake(10, 210, 140, 30)];
+    l.text = @"是否生成加密视频";
+    l.textColor = [UIColor redColor];
+    [self.view addSubview:l];
+    
+    UISwitch *switchBtn = [[UISwitch alloc]initWithFrame:CGRectMake(160, 210, 80, 30)];
+    [switchBtn addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:switchBtn];
 
-    self.progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar];
+    self.progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 264, CGRectGetWidth(self.view.frame), 25)];
     self.progressView.progressTintColor = [UIColor redColor];
     self.progressView.trackTintColor = [UIColor lightGrayColor];
     self.progressView.progressViewStyle = UIProgressViewStyleBar;
-    self.progressView.frame = CGRectMake(0, 264, CGRectGetWidth(self.view.frame), 0.5);
     self.progressView.progress = 0;
     [self.view addSubview:self.progressView];
     
@@ -49,7 +60,9 @@
     self.tryButton = tryButton;
     
 }
-
+- (void) switchAction:(UISwitch *) s1 {
+    _isSafe =s1.on ;
+}
 //点击重试
 - (void)tryAgainClik {
     self.tryButton.hidden = YES;
@@ -96,7 +109,7 @@
 {
     //分片上传
     __weak typeof(self)weakSelf = self;
-    [weakSelf.uploder multipartUpload:filePath vodInfo:nil progress:^(VHUploadFileInfo * _Nonnull fileInfo, int64_t uploadedSize, int64_t totalSize) {
+    [weakSelf.uploder multipartUpload:filePath vodInfo:nil isSafe:_isSafe progress:^(VHUploadFileInfo * _Nonnull fileInfo, int64_t uploadedSize, int64_t totalSize) {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"milti progress : %f",1.0 * uploadedSize / totalSize);
             [weakSelf.progressView setProgress:1.0 * uploadedSize / totalSize animated:NO];

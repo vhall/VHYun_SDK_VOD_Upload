@@ -56,9 +56,11 @@
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(leftNavBtnClick:)];
     self.navigationItem.leftBarButtonItem = leftItem;
     
-    self.logtextview = [[UITextView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame)-200, CGRectGetWidth(self.view.frame), 200)];
-    self.logtextview.backgroundColor = [UIColor lightGrayColor];
+    self.logtextview = [[UITextView alloc] initWithFrame:CGRectMake(0, 300, CGRectGetWidth(self.view.frame), 30)];
+    self.logtextview.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
     self.logtextview.editable = NO;
+    self.logtextview.textColor = [UIColor greenColor];
+    self.logtextview.text = @"状态： 未上传";
     [self.view addSubview:self.logtextview];
 }
 

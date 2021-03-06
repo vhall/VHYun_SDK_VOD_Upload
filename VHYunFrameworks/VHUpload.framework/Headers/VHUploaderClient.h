@@ -64,6 +64,24 @@ typedef void (^OnUploadFailedCallback) (VHUploadFileInfo* _Nullable fileInfo, NS
                 success:(OnUploadSucessCallback)successCallback
                 failure:(OnUploadFailedCallback)failedCallback;
 
+/**
+ 分片上传 默认会将文件以每片1M大小进行分片
+ 当次上传失败时，可重试继续上传
+ @param filePath 文件路径，不可为空
+ @param vodInfo  文件扩展信息，可为空
+ @param isSafe 是否生成加密视频，默认为NO
+ @param progressCallback 上传进度回调
+ @param successCallback  上传成功回调
+ @param failedCallback   上传失败回调
+ @warning 支持文件大小 < 5g。上传进度回调是在子线程中，如果有UI处理请注意返回主线程。
+ */
+- (void)multipartUpload:(NSString *)filePath
+                vodInfo:(nullable VHVodInfo *)vodInfo
+                 isSafe:(BOOL)isSafe
+               progress:(OnUploadProgressCallback)progressCallback
+                success:(OnUploadSucessCallback)successCallback
+                failure:(OnUploadFailedCallback)failedCallback;
+
 
 
 @end

@@ -36,7 +36,7 @@ typedef NS_ENUM(NSInteger,VHUploadFileState) {
 @interface VHUploadFileInfo : NSObject
 
 - (instancetype)init NS_UNAVAILABLE;
-- (instancetype)initWithFilePath:(NSString *)filePath;
+- (instancetype)initWithFilePath:(NSString *)filePath isSafe:(BOOL)isSafe;
 /** 文件状态 */
 @property (nonatomic, assign) VHUploadFileState fileState;
 
@@ -64,6 +64,9 @@ typedef NS_ENUM(NSInteger,VHUploadFileState) {
 
 /** 真正上传时的文件路径，SDK内部使用 */
 @property (nonatomic, copy ,readonly) NSString *uploadPath;
+
+/**是否生成加密视频，默认为NO */
+@property (nonatomic, assign ,readonly) BOOL isSafe;
 @end
 
 
